@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2023 at 11:11 AM
+-- Generation Time: May 05, 2023 at 09:33 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -38,7 +38,7 @@ CREATE TABLE `buku` (
   `stok` int(11) NOT NULL,
   `dipinjam` int(11) NOT NULL,
   `dibooking` int(11) NOT NULL,
-  `image` varchar(256) NOT NULL
+  `image` varchar(256) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'book-default-cover.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -65,7 +65,7 @@ INSERT INTO `buku` (`id`, `judul_buku`, `id_kategori`, `pengarang`, `penerbit`, 
 
 CREATE TABLE `kategori` (
   `id_kategori` int(5) NOT NULL,
-  `nama_kategori` varchar(45) NOT NULL
+  `nama_kategori` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -91,7 +91,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 
 CREATE TABLE `role` (
   `id` int(11) NOT NULL,
-  `role` varchar(128) NOT NULL
+  `role` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -110,10 +110,10 @@ INSERT INTO `role` (`id`, `role`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `nama` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `image` varchar(128) NOT NULL,
-  `password` varchar(256) NOT NULL,
+  `nama` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `image` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `password` varchar(256) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
   `tanggal_input` int(11) NOT NULL
