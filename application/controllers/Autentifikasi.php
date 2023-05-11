@@ -156,13 +156,7 @@ class Autentifikasi extends CI_Controller
 
     public function logout()
     {
-        // Load the CodeIgniter session library
-        $this->load->library('session');
-
-        // Destroy the user's session data
-        $this->session->sess_destroy();
-
-        // Redirect the user to the login page
-        redirect('templates/login');
+        $this->session->unset_userdata('email');
+        redirect('autentifikasi');
     }
 }
