@@ -43,18 +43,12 @@
                             <td>
                                 <picture>
                                     <source srcset="" type="image/svg+xml">
-                                    <img src="<?=
-                                                base_url('assets/img/upload/') . $b['image']; ?>" class="img-fluid 
-img-thumbnail" alt="...">
+                                    <img src="<?= base_url('assets/img/upload/') . $b['image']; ?>" class="img-fluid img-thumbnail" alt="...">
                                 </picture>
                             </td>
                             <td>
-                                <a href="<?=
-                                            base_url('buku/ubahBuku/') . $b['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> Ubah</a>
-                                <a href="<?=
-                                            base_url('buku/hapusbuku/') . $b['id']; ?>" onclick="return
-confirm('Kamu yakin akan menghapus <?= $judul . '' . $b['judul_buku']; ?> ?');" class="badge badge-danger"><i class="fas 
-fa-trash"></i> Hapus</a>
+                                <a href="<?= base_url('buku/updateBuku/') . $b['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> Ubah</a>
+                                <a href="<?= base_url('buku/hapusbuku/') . $b['id']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $judul . '' . $b['judul_buku']; ?> ?');" class="badge badge-danger"><i class="fas fa-trash"></i> Hapus</a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -82,26 +76,23 @@ fa-trash"></i> Hapus</a>
                         <input type="text" class="form-control form-control-user" id="judul_buku" name="judul_buku" placeholder="Masukkan Judul Buku">
                     </div>
                     <div class="form-group">
-                        <select name="id_kategori" class="form-control form-control-user">
+                        <select name="kategori" class="form-control form-control-user">
                             <option value="">Pilih Kategori</option>
                             <?php
-                            foreach ($kategori as $k) { ?>
-                                <option value="<?= $k['id']; ?>"><?=
-                                                                    $k['kategori']; ?></option>
+                            $k = ['Sains', 'Hobby', 'Komputer', 'Komunikasi', 'Hukum', 'Agama', 'Populer', 'Bahasa', 'Komik'];
+                            for ($i = 0; $i < 9; $i++) { ?>
+                                <option value="<?= $k[$i]; ?>"><?= $k[$i]; ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="pengarang" name="pengarang" placeholder="Masukkan 
-nama pengarang">
+                        <input type="text" class="form-control form-control-user" id="pengarang" name="pengarang" placeholder="Masukkan nama pengarang">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="penerbit" name="penerbit" placeholder="Masukkan 
-nama penerbit">
+                        <input type="text" class="form-control form-control-user" id="penerbit" name="penerbit" placeholder="Masukkan nama penerbit">
                     </div>
                     <div class="form-group">
-                        <select name="tahun" class="form-control 
-form-control-user">
+                        <select name="tahun" class="form-control form-control-user">
                             <option value="">Pilih Tahun</option>
                             <?php
                             for ($i = date('Y'); $i > 1000; $i--) {
@@ -114,8 +105,7 @@ form-control-user">
                         <input type="text" class="form-control form-control-user" id="isbn" name="isbn" placeholder="Masukkan ISBN">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user" id="stok" name="stok" placeholder="Masukkan nominal 
-stok">
+                        <input type="text" class="form-control form-control-user" id="stok" name="stok" placeholder="Masukkan nominal stok">
                     </div>
                     <div class="form-group">
                         <input type="file" class="form-control form-control-user" id="image" name="image">
