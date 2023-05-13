@@ -1,4 +1,4 @@
-## NOTES
+##NOTES
 
 ubah database pada tabel kategori:
 
