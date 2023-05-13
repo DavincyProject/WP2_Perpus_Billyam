@@ -1,4 +1,13 @@
 ###################
+Notes
+###################
+
+ubah database pada tabel kategori:
+
+- hapus id_kategori kemudian buat kembali dengan nama id dan nyalakan Auto_INCREMENT
+- nama_kategori menjadi kategori
+
+###################
 What is CodeIgniter
 ###################
 
