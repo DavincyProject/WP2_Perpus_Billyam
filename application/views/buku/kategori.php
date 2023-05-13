@@ -8,7 +8,6 @@
                     <?= validation_errors(); ?>
                 </div>
             <?php } ?>
-            <?= $this->session->flashdata('pesan'); ?>
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#kategoriBaruModal"><i class="fas fa-file-alt"></i> Tambah Kategori</a>
             <table class="table table-hover">
                 <thead>
@@ -26,7 +25,9 @@
                             <th scope="row"><?= $a++; ?></th>
                             <td><?= $k['kategori']; ?></td>
                             <td>
-                                <a href="<?= base_url('buku/ubahKategori/') . $k['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i>Ubah </a><span></span>
+                                <a href="<?= base_url('buku/ubahKategori/') . $k['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i>
+                                    Ubah
+                                </a>
                                 <a href="<?= base_url('buku/hapusKategori/') . $k['id']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $judul . ' ' . $k['kategori']; ?>?');" class="badge badge-danger"><i class="fas fa-trash"></i>
                                     Hapus
                                 </a>
@@ -39,7 +40,6 @@
     </div>
 </div>
 <!-- /.container-fluid -->
-
 </div>
 <!-- End of Main Content -->
 <!-- Modal Tambah kategori baru-->
@@ -52,17 +52,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('buku/kategori'); ?>" method="post">
+            <form action="<?= base_url('buku/tambahKategori'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
-                        <select name="kategori" class="form-control form-control-user">
-                            <option value="">Pilih Kategori</option>
-                            <?php
-                            $k = ['Sains', 'Hobby', 'Komputer', 'Komunikasi', 'Hukum', 'Agama', 'Populer', 'Bahasa', 'Komik'];
-                            for ($i = 0; $i < 9; $i++) { ?>
-                                <option value="<?= $k[$i]; ?>"><?= $k[$i]; ?></option>
-                            <?php } ?>
-                        </select>
+                        <input type="text" name="kategori" class="form-control form-control-user" placeholder="Masukkan Nama Kategori">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -73,4 +66,4 @@
         </div>
     </div>
 </div>
-<!-- End of Modal Tambah Mneu -->
+<!-- End of Modal Tambah Menu -->

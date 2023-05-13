@@ -55,20 +55,69 @@ class ModelBuku extends CI_Model
         return $this->db->get_where('kategori', $where);
     }
 
+    // Add a new kategori
+    public function tambahKategori()
+    {
+        $data = [
+            'kategori' => $this->input->post('kategori', true)
+        ];
+        $this->db->insert('kategori', $data);
+    }
+
     public function simpanKategori($data = null)
     {
         $this->db->insert('kategori', $data);
     }
 
-    public function hapusKategori($where = null)
+    public function hapusKategori($id = null)
     {
-        $this->db->delete('kategori', $where);
+        $this->db->where('id', $id);
+        $this->db->delete('kategori');
     }
 
-    public function updateKategori($where = null, $data = null)
+    // Update a kategori
+    public function updateKategori($id)
     {
-        $this->db->update('kategori', $data, $where);
+        $data = [
+            'kategori' => $this->input->post('kategori', true)
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('kategori', $data);
     }
+
+    // Get a kategori by id
+    public function getKategoriById($id)
+    {
+        return $this->db->get_where('kategori', ['id' => $id])->row_array();
+    }
+
+    public function ubahKategori($id)
+    {
+        $data['judul'] = 'Ubah Kategori';
+        $data['kategori'] = $this->ModelBuku->getKategoriById($id);
+
+        $this->form_validation->set_rules('kategori', 'Kategori', 'required|trim', [
+            'required' => 'Nama kategori harus diisi!'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/aute_header', $data);
+            $this->load->view('buku/ubah_kategori', $data);
+            $this->load->view('templates/aute_footer');
+        } else {
+            $kategori = $this->input->post('kategori');
+            $this->ModelBuku->ubahKategori($id, $kategori);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Kategori berhasil diubah!</div>');
+            redirect('buku/kategori');
+        }
+    }
+
+
+
+    // public function updateKategori($where = null, $data = null)
+    // {
+    //     $this->db->update('kategori', $data, $where);
+    // }
 
     //join
     public function joinKategoriBuku($where)

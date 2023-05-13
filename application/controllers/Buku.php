@@ -160,13 +160,57 @@ class Buku extends CI_Controller
         }
     }
 
-
-    public function hapusKategori()
+    public function tambahKategori()
     {
-        $where = ['id' => $this->uri->segment(3)];
-        $this->ModelBuku->hapusKategori($where);
+        $data['judul'] = 'Tambah Kategori';
+
+        $this->form_validation->set_rules('kategori', 'Kategori', 'required|trim', [
+            'required' => 'Nama kategori harus diisi!'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $data['kategori'] = $this->ModelBuku->getKategori();
+            $this->load->view('templates/header', $data);
+            $this->load->view('buku/kategori', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $kategori = $this->input->post('kategori');
+            $this->ModelBuku->tambahKategori($kategori);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Kategori baru berhasil ditambahkan!</div>');
+            redirect('buku/kategori');
+        }
+    }
+
+    public function ubahKategori($id)
+    {
+        $data['judul'] = 'Ubah Kategori';
+        $data['kategori'] = $this->ModelBuku->getKategoriById($id);
+
+        $this->form_validation->set_rules('kategori', 'Kategori', 'required|trim', [
+            'required' => 'Nama kategori harus diisi!'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('buku/ubah_kategori', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $kategori = $this->input->post('kategori');
+            $this->ModelBuku->ubahKategori($id, $kategori);
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data kategori berhasil diubah!</div>');
+            redirect('buku/kategori');
+        }
+    }
+
+
+    public function hapusKategori($id)
+    {
+        $id = $this->uri->segment(3);
+        $this->ModelBuku->hapusKategori($id);
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Kategori berhasil dihapus!</div>');
         redirect('buku/kategori');
     }
+
 
 
     public function ubahBuku()
