@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container">
     <?= $this->session->flashdata('pesan'); ?>
     <div class="row">
         <div class="col-lg-3">
@@ -26,8 +26,8 @@
                             <th scope="row"><?= $a++; ?></th>
                             <td><?= $k['kategori']; ?></td>
                             <td>
-                                <a href="<?= base_url('buku/updateBuku/') . $k['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i> Ubah</a>
-                                <a href="<?= base_url('buku/hapusbuku/') . $k['id']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $judul . ' ' . $k['kategori']; ?>?');" class="badge badge-danger"><i class="fas fa-trash"></i>
+                                <a href="<?= base_url('buku/ubahKategori/') . $k['id']; ?>" class="badge badge-info"><i class="fas fa-edit"></i>Ubah </a><span></span>
+                                <a href="<?= base_url('buku/hapusKategori/') . $k['id']; ?>" onclick="return confirm('Kamu yakin akan menghapus <?= $judul . ' ' . $k['kategori']; ?>?');" class="badge badge-danger"><i class="fas fa-trash"></i>
                                     Hapus
                                 </a>
                             </td>
@@ -39,6 +39,7 @@
     </div>
 </div>
 <!-- /.container-fluid -->
+
 </div>
 <!-- End of Main Content -->
 <!-- Modal Tambah kategori baru-->

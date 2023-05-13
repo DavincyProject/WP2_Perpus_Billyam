@@ -160,12 +160,14 @@ class Buku extends CI_Controller
         }
     }
 
+
     public function hapusKategori()
     {
         $where = ['id' => $this->uri->segment(3)];
         $this->ModelBuku->hapusKategori($where);
         redirect('buku/kategori');
     }
+
 
     public function ubahBuku()
     {
@@ -294,6 +296,6 @@ class Buku extends CI_Controller
     {
         $where = ['id' => $this->uri->segment(3)];
         $this->ModelBuku->hapusBuku($where);
-        redirect('buku');
+        redirect('buku/kategori');
     }
 }
