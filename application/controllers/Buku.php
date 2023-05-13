@@ -195,8 +195,7 @@ class Buku extends CI_Controller
             $this->load->view('buku/ubah_kategori', $data);
             $this->load->view('templates/footer');
         } else {
-            $kategori = $this->input->post('kategori');
-            $this->ModelBuku->ubahKategori($id, $kategori);
+            $this->ModelBuku->ubahKategori($id, $this->input->post('kategori'));
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data kategori berhasil diubah!</div>');
             redirect('buku/kategori');
         }
