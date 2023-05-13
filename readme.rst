@@ -4,7 +4,7 @@ Notes
 
 ubah database pada tabel kategori:
 
-- id_kategori menjadi id
+- hapus id_kategori kemudian buat kembali dengan nama id dan nyalakan Auto_INCREMENT
 - nama_kategori menjadi kategori
 
 ###################
