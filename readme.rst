@@ -1,3 +1,10 @@
+## NOTES
+
+ubah database pada tabel kategori:
+
+- id_kategori menjadi id
+- nama_kategori menjadi kategori
+
 ###################
 What is CodeIgniter
 ###################
