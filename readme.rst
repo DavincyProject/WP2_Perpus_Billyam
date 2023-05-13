@@ -1,4 +1,6 @@
-##NOTES
+###################
+Notes
+###################
 
 ubah database pada tabel kategori:
 
