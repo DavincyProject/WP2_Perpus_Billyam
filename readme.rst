@@ -1,12 +1,18 @@
-###################
-Notes
-###################
+#### NOTES
 
-ubah database pada tabel kategori:
+Agar database sesuai dengan codingan, ubah tabel kategori menjadi seperti ini :
 
-- hapus id_kategori kemudian buat kembali dengan nama id dan nyalakan Auto_INCREMENT
-- nama_kategori menjadi kategori
-- JANGAN MENCOBA UBAH KATEGORI YANG TELAH TERSEDIA TERLEBIH DAHULU KARENA MASIH TERDAPAT BUG
+
+```http
+  Tabel Kategori
+```
+
+| nama awal | menjadi     | Description                |
+| :-------- | :------- | :------------------------- |
+| `id_kategori` | `id` | **Nyalakan auto_increment**. |
+| `nama_kategori` | `kategori` |  |
+
+**JANGAN MENCOBA UBAH KATEGORI YANG TELAH TERSEDIA TERLEBIH DAHULU KARENA MASIH TERDAPAT BUG**
 
 ###################
 What is CodeIgniter
