@@ -1,12 +1,11 @@
+
 #### NOTES
 
 Agar database sesuai dengan codingan, ubah tabel kategori menjadi seperti ini :
 
-
 ```http
   Tabel Kategori
 ```
-
 | nama awal | menjadi     | Description                |
 | :-------- | :------- | :------------------------- |
 | `id_kategori` | `id` | **Nyalakan auto_increment**. |
