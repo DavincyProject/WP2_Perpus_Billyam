@@ -28,6 +28,7 @@ class Autentifikasi extends CI_Controller
             ]
         );
 
+
         if ($this->form_validation->run() == false) {
             $data['judul'] = 'Login';
             $data['user'] = '';
