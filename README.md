@@ -1,7 +1,7 @@
 
 #### NOTES
 
-Agar database sesuai dengan codingan, ubah tabel kategori menjadi seperti ini :
+Agar database sesuai dengan codingan, ubah tabel kategori menjadi seperti ini jika belum sesuai:
 
 
 ```http
