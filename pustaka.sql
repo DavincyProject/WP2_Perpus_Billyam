@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2023 at 10:30 AM
+-- Generation Time: Jun 21, 2023 at 04:29 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -123,8 +123,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `email`, `image`, `password`, `role_id`, `is_active`, `tanggal_input`) VALUES
-(0, 'billy', 'tes@gmail.com', 'pro1683863247.png', '$2y$10$v/.JC9rUWvdKtedtcBQRPuvToFu4xGoR4Xhmk54ndXevKHqM5jdbW', 2, 1, 1683803766),
-(0, 'bil', 'tes11@gmail.com', 'default.jpg', '$2y$10$TXkCu2/mHQ.npIpecCds6u/MGgF7G5RomEDyyImfjulU4Ml2M3Gye', 2, 1, 1683865765);
+(1, 'billy', 'tes@gmail.com', 'pro1685001605.png', '$2y$10$v/.JC9rUWvdKtedtcBQRPuvToFu4xGoR4Xhmk54ndXevKHqM5jdbW', 2, 1, 1683803766),
+(2, 'bil', 'tes11@gmail.com', 'default.jpg', '$2y$10$TXkCu2/mHQ.npIpecCds6u/MGgF7G5RomEDyyImfjulU4Ml2M3Gye', 2, 1, 1683865765);
 
 --
 -- Indexes for dumped tables
@@ -149,6 +149,12 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -156,7 +162,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
