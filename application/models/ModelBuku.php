@@ -85,32 +85,41 @@ class ModelBuku extends CI_Model
         $this->db->update('kategori', $data);
     }
 
-    // Get a kategori by id
     public function getKategoriById($id)
     {
         return $this->db->get_where('kategori', ['id' => $id])->row_array();
     }
 
-    public function ubahKategori($id)
+    public function ubahKategori($id, $kategori)
     {
-        $data['judul'] = 'Ubah Kategori';
-        $data['kategori'] = $this->ModelBuku->getKategoriById($id);
+        $data = array(
+            'kategori' => $kategori
+        );
 
-        $this->form_validation->set_rules('kategori', 'Kategori', 'required|trim', [
-            'required' => 'Nama kategori harus diisi!'
-        ]);
-
-        if ($this->form_validation->run() == false) {
-            $this->load->view('templates/aute_header', $data);
-            $this->load->view('buku/ubah_kategori', $data);
-            $this->load->view('templates/aute_footer');
-        } else {
-            $kategori = $this->input->post('kategori');
-            $this->ModelBuku->ubahKategori($id, $kategori);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Kategori berhasil diubah!</div>');
-            redirect('buku/kategori');
-        }
+        $this->db->where('id', $id);
+        $this->db->update('kategori', $data);
     }
+
+    // public function ubahKategori($id)
+    // {
+    //     $data['judul'] = 'Ubah Kategori';
+    //     $data['kategori'] = $this->ModelBuku->getKategoriById($id);
+
+    //     $this->form_validation->set_rules('kategori', 'Kategori', 'required|trim', [
+    //         'required' => 'Nama kategori harus diisi!'
+    //     ]);
+
+    //     if ($this->form_validation->run() == false) {
+    //         $this->load->view('templates/aute_header', $data);
+    //         $this->load->view('buku/ubah_kategori', $data);
+    //         $this->load->view('templates/aute_footer');
+    //     } else {
+    //         $kategori = $this->input->post('kategori');
+    //         $this->ModelBuku->ubahKategori($id, $kategori);
+    //         $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Kategori berhasil diubah!</div>');
+    //         redirect('buku/kategori');
+    //     }
+    // }
 
 
     //join
